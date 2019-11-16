@@ -1,3 +1,1 @@
-module.exports = {
-  ColorMatrix: require("./ColorMatrix")
-};
+export { default } from './ColorMatrix';
