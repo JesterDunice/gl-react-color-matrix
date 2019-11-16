@@ -1,13 +1,10 @@
-const GL = require("gl-react");
-const React = require("react");
+import React from 'react';
+import { Node, GLSL } from 'gl-react';
 
-const {
-  PropTypes
-} = React;
 
 const shaders = GL.Shaders.create({
   ColorMatrix: {
-    frag: `precision highp float;
+    frag: GLSL`precision highp float;
 varying vec2 uv;
 uniform sampler2D t;
 uniform mat4 m;
@@ -18,15 +15,11 @@ void main () {
   }
 });
 
-module.exports = GL.createComponent(
-  ({ children: t, matrix: m }) =>
-  <GL.Node
+const ColorMatrix = ({ children: t, matrix: m }) => (
+  <Node
     shader={shaders.ColorMatrix}
     uniforms={{ t, m }}
-  />,
-{
-  displayName: "ColorMatrix",
-  propTypes: {
-    children: PropTypes.any.isRequired
-  }
-});
+  />
+);
+
+export default ColorMatrix;
