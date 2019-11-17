@@ -1,8 +1,8 @@
 import React from 'react';
-import { Node, GLSL } from 'gl-react';
+import { Node, GLSL, Shaders } from 'gl-react';
 
 
-const shaders = GL.Shaders.create({
+const shaders = Shaders.create({
   ColorMatrix: {
     frag: GLSL`precision highp float;
 varying vec2 uv;
